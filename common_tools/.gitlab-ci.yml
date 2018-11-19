@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+  - package
+
+build:
+  stage: build
+  script:
+    mvn clean compile -Ppdm-internal
+    
+coverage:
+  stage: test
+  script:
+    - mvn clean test -Ppdm-internal,disable-findbugs,clover
+    - rm -rf coverage
+    - mv target/site/clover coverage
+  artifacts:
+    paths:
+      - coverage
+    expire_in: 3 day
