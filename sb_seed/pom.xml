@@ -17,6 +17,19 @@
 	</parent>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!--aop-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.project.common</groupId>
 			<artifactId>common_tools</artifactId>
@@ -44,6 +57,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+
+
 		<!--常用库依赖-->
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -69,7 +89,7 @@
 		</dependency>
 
 		<!--MyBatis 及 插件依赖-->
-		<dependency>
+			<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis-spring.version}</version>
@@ -139,13 +159,15 @@
 		</dependency>
 
 	</dependencies>
+
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.project.sb.Application</mainClass>
+					<mainClass>com.project.seed.Application</mainClass>
 				</configuration>
 				<executions>
 					<execution>

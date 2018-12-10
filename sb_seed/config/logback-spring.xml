@@ -14,7 +14,7 @@
     </appender>
 
     <appender name="files" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${log.path}/sb_test.log</File>
+        <File>${log.path}/sb_seed.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/sb_test.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
@@ -24,6 +24,32 @@
             <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <Logger name="com.project.seed" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="RollingFile"/>
+    </Logger>
+
+    <!-- use 'trace' or 'debug' level to see the log when the connection transaction was failed -->
+    <Logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="trace" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="RollingFile"/>
+    </Logger>
+
+    <Logger name="org.springframework" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="RollingFile"/>
+    </Logger>
+
+    <Logger name="org.mybatis" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="RollingFile"/>
+    </Logger>
+
+    <Logger name="org.apache.ibatis" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="RollingFile"/>
+    </Logger>
 
     <root level="info">
         <appender-ref ref="console"/>

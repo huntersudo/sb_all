@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.seed.persistence.AuditTableMapper">
+  <resultMap id="BaseResultMap" type="com.project.seed.model.AuditTable">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="direction" jdbcType="VARCHAR" property="direction" />
+    <result column="service" jdbcType="VARCHAR" property="service" />
+    <result column="zipFile" jdbcType="VARCHAR" property="zipfile" />
+    <result column="data_time" jdbcType="VARCHAR" property="dataTime" />
+    <result column="dataFile" jdbcType="VARCHAR" property="datafile" />
+    <result column="md5Value" jdbcType="VARCHAR" property="md5value" />
+    <result column="check" jdbcType="VARCHAR" property="check" />
+    <result column="errorDetail" jdbcType="VARCHAR" property="errordetail" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+</mapper>

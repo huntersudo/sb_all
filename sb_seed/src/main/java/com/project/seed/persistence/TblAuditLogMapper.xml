@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.seed.persistence.TblAuditLogMapper">
+  <resultMap id="BaseResultMap" type="com.project.seed.model.TblAuditLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="api_module" jdbcType="VARCHAR" property="apiModule" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="operation_time" jdbcType="TIMESTAMP" property="operationTime" />
+    <result column="log_type" jdbcType="INTEGER" property="logType" />
+  </resultMap>
+</mapper>

@@ -18,7 +18,7 @@
         <artifactory.release.url>http://10.154.5.152:8081/artifactory/libs-release</artifactory.release.url>
         <artifactory.snapshot.url>http://10.154.5.152:8081/artifactory/libs-snapshot</artifactory.snapshot.url>
         <findbug.disable>false</findbug.disable>
-        <spring.version>4.3.6.RELEASE</spring.version>
+        <spring.version>4.3.19.RELEASE</spring.version>
         
         <jackson.version>2.8.11</jackson.version>
         <servlet-api.version>3.1.0</servlet-api.version>
