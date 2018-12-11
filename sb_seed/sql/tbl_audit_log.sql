@@ -1,4 +1,6 @@
 
+-- audit_log--
+
 CREATE TABLE `tbl_audit_log` (
   `id` varchar(20) NOT NULL ,
   `operator` varchar(64) NULL ,
@@ -7,6 +9,7 @@ CREATE TABLE `tbl_audit_log` (
   `operation` varchar(64)  NULL ,
   `params` varchar(500) NULL ,
   `operation_time` datetime(3) default now(3) COMMENT '时间(毫秒级别)',
-  `log_type` int(10) NULL
+  `log_type` int(10) NULL,
+  PRIMARY KEY (`id`) USING BTREE
 );
 

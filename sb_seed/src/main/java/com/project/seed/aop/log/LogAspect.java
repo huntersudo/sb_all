@@ -104,7 +104,7 @@
 //    public Object writeLog(ProceedingJoinPoint pjp, AuditLog auditLog) throws Throwable {
 //
 //        Object[] params = pjp.getArgs();
-//        AuditLogObject auditLogObject = auditLog.obj();
+//        AuditLogModule auditLogObject = auditLog.obj();
 //        AuditLogOperation auditLogOperation = auditLog.op();
 //        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 //        SysUserDto sysUserDto = getCurrentUserInfo(auditLogOperation, params, request);
@@ -802,7 +802,7 @@
 //        }
 //    }
 //
-//    private TaskOperationDto afterHandle(Object object, AuditLogObject auditLogObject, AuditLogOperation auditLogOperation, Object[] objects) {
+//    private TaskOperationDto afterHandle(Object object, AuditLogModule auditLogObject, AuditLogOperation auditLogOperation, Object[] objects) {
 //        TaskOperationDto taskOperationDto = new TaskOperationDto();
 //        switch (auditLogObject) {
 //            case USER:

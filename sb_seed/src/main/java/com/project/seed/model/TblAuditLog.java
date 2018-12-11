@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Table(name = "tbl_audit_log")
 public class TblAuditLog {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 

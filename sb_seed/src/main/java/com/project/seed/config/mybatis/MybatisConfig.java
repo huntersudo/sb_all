@@ -20,6 +20,17 @@ import java.util.Properties;
 @Configuration
 public class MybatisConfig {
 
+    public static final String SPRING_DATA_SOURCE = "spring.dataSource" ;
+    public static final String MAPPER_SCAN = "com.chinamobile.cmss.persistence";
+    public static final String ALIAS_PACKAGE_SCAN = "com.chinamobile.cmss.model" ;
+    public static final String XML_SCAN = "classpath*:com/chinamobile/cmss/persistence/*.xml";
+    public static final String DATA_SOURCE = "DataSource_";
+    public static final String TRANSACTION_MANAGER = "TransactionManager_";
+    public static final String SQL_SESSION_FACTORY = "SqlSessionFactory_";
+    public static final String SQL_SESSION_TEMPLATE_REF = "SqlSessionTemplateRef_";
+
+
+
     @Bean
     public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
@@ -42,7 +53,7 @@ public class MybatisConfig {
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        factory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+        factory.setMapperLocations(resolver.getResources(XML_SCAN));
         return factory.getObject();
     }
 

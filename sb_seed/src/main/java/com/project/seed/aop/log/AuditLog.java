@@ -3,7 +3,7 @@ package com.project.seed.aop.log;
 import java.lang.annotation.*;
 
 /**
- * @author tujingwei
+ * @author sml
  * @date 2018/5/2 16:11
  */
 @Target(ElementType.METHOD)
@@ -11,9 +11,9 @@ import java.lang.annotation.*;
 @Documented
 public @interface AuditLog {
     /**
-     * the operation target
+     * the operation module
      */
-    AuditLogObject obj();
+    AuditLogModule obj();
 
     /**
      * the operation

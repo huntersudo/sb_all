@@ -36,13 +36,16 @@
 
 		<commons-lang3.version>3.1</commons-lang3.version>
 		<commons-codec.version>1.10</commons-codec.version>
+		<commons-io.version>2.6</commons-io.version>
 
 		<mybatis.version>3.4.5</mybatis.version>
 		<mybatis-spring.version>1.3.1</mybatis-spring.version>
+
 		<tk.mybatis.version>3.4.2</tk.mybatis.version>
 		<pagehelper.version>4.2.1</pagehelper.version>
 		<fastjson.version>1.2.47</fastjson.version>
 		<druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
+
 		<freemarker.version>2.3.23</freemarker.version>
 		<mybatis-generator-core.version>1.3.5</mybatis-generator-core.version>
 

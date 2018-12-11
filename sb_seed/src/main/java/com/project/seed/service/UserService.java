@@ -4,7 +4,7 @@ import com.project.seed.generator.Service;
 
 
 /**
- * Created by author on 2018/12/10.
+ * Created by author on 2018/12/11.
  */
 public interface UserService extends Service<User> {
 

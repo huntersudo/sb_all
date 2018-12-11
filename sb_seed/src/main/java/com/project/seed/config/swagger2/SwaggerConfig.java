@@ -14,9 +14,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import static com.project.seed.generator.ProjectConstant.CONTROLLER_PACKAGE;
+
 /**
  * tags为每个API操作分配一个列表。标记的操作可能由工具和库以不同方式处理。
- * 例如，Swagger UI用于tags对显示的操作进行分组。
+ * 例如，Swagger UI用tags对显示的操作进行分组。
  *
  */
 
@@ -29,7 +31,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
                 .apiInfo(apiInfo())
                 .select()
                 //api接口包扫描路径
-                .apis(RequestHandlerSelectors.basePackage("com.project.sb.web"))
+                .apis(RequestHandlerSelectors.basePackage(CONTROLLER_PACKAGE))
                 //可以根据url路径设置哪些请求加入文档，忽略哪些请求
                 .paths(PathSelectors.any())
                 .build();

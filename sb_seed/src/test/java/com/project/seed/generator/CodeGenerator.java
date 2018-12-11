@@ -27,8 +27,8 @@ public class CodeGenerator {
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
     //按需配置
-    private static final String PROJECT_PATH = System.getProperty("user.dir")+"/sb_seed";
-    private static final String TEMPLATE_FILE_PATH = PROJECT_PATH + "/src/test/resources/generator/template";
+    private static final String PROJECT_PATH = System.getProperty("user.dir") + "/sb_seed";
+    private static final String TEMPLATE_FILE_PATH = "E:\\workspace2\\sb_all\\sb_seed\\src\\test\\java\\com\\project\\seed\\generator";
 
     // 一般的约定的路径
     private static final String JAVA_FILE_PATH = "/src/main/java"; //java文件路径
@@ -42,46 +42,29 @@ public class CodeGenerator {
 
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
-    //默认自动覆盖
+    //默认自动覆盖同名相关类
+    //支持追加新的表
     public static void main(String[] args) {
 
-
-        genCode("tbl_audit_log","user","audit_table");
+        genCode("user", "tbl_audit_log", "mft_journal_table");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
-
-
 
     }
 
-    /**
-     * 通过数据表名称生成代码，Model 名称通过解析数据表名称获得，下划线转大驼峰的形式。
-     * 如输入表名称 "t_user_detail" 将生成 TUserDetail、TUserDetailMapper、TUserDetailService ...
-     * @param tableNames 数据表名称...
-     */
     public static void genCode(String... tableNames) {
         for (String tableName : tableNames) {
             genCodeByCustomModelName(tableName, null);
         }
     }
-
-    /**
-     * 通过数据表名称，和自定义的 Model 名称生成代码
-     * 如输入表名称 "t_user_detail" 和自定义的 Model 名称 "UserDto" 将生成 UserDto、UserMapper、UserService ...
-     * @param tableName 数据表名称
-     * @param modelName 自定义的 Model 名称
-     */
     public static void genCodeByCustomModelName(String tableName, String modelName) {
+        //1、
         genModelAndMapper(tableName, modelName);
-
+        //2、
         genService(tableName, modelName);
-
-        /**
-         * 2种风格
-         */
+        //3、
         genControllerWithFtl(tableName, modelName, "controller-restful.ftl");
 //        genControllerWithFtl(tableName, modelName,"controller.ftl");
     }
-
 
     public static void genModelAndMapper(String tableName, String modelName) {
         Context context = new Context(ModelType.FLAT);
@@ -110,7 +93,7 @@ public class CodeGenerator {
 
         // xml_location
         SqlMapGeneratorConfiguration sqlMapGeneratorConfiguration = new SqlMapGeneratorConfiguration();
-        sqlMapGeneratorConfiguration.setTargetProject(PROJECT_PATH+JAVA_FILE_PATH);
+        sqlMapGeneratorConfiguration.setTargetProject(PROJECT_PATH + JAVA_FILE_PATH);
         sqlMapGeneratorConfiguration.setTargetPackage(PACKAGE_PATH_PERSISTENCE);
         context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfiguration);
 
@@ -123,7 +106,10 @@ public class CodeGenerator {
 
         TableConfiguration tableConfiguration = new TableConfiguration(context);
         tableConfiguration.setTableName(tableName);
-        if (StringUtils.isNotEmpty(modelName))tableConfiguration.setDomainObjectName(modelName);
+
+        if (StringUtils.isNotEmpty(modelName)) {
+            tableConfiguration.setDomainObjectName(modelName);
+        }
         tableConfiguration.setGeneratedKey(new GeneratedKey("id", "Mysql", true, null));
         context.addTableConfiguration(tableConfiguration);
 
@@ -231,7 +217,7 @@ public class CodeGenerator {
     }
 
     /**
-     *  audit_table >>> /audit/table/
+     * audit_table >>> /audit/table/
      */
     private static String tableNameConvertMappingPath(String tableName) {
         tableName = tableName.toLowerCase();//兼容使用大写的表名

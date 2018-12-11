@@ -3,8 +3,8 @@ package com.project.seed.model;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "audit_table")
-public class AuditTable {
+@Table(name = "mft_journal_table")
+public class MftJournalTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -46,7 +46,7 @@ public class AuditTable {
     /**
      * 1-true,0-false
      */
-    private String check;
+    private Integer check;
 
     /**
      * 错误详情，后续扩展用
@@ -61,7 +61,7 @@ public class AuditTable {
     private Date createtime;
 
     /**
-     *  记录更新时间
+     * 记录更新时间
      */
     @Column(name = "updateTime")
     private Date updatetime;
@@ -193,7 +193,7 @@ public class AuditTable {
      *
      * @return check - 1-true,0-false
      */
-    public String getCheck() {
+    public Integer getCheck() {
         return check;
     }
 
@@ -202,7 +202,7 @@ public class AuditTable {
      *
      * @param check 1-true,0-false
      */
-    public void setCheck(String check) {
+    public void setCheck(Integer check) {
         this.check = check;
     }
 
@@ -243,18 +243,18 @@ public class AuditTable {
     }
 
     /**
-     * 获取 记录更新时间
+     * 获取记录更新时间
      *
-     * @return updateTime -  记录更新时间
+     * @return updateTime - 记录更新时间
      */
     public Date getUpdatetime() {
         return updatetime;
     }
 
     /**
-     * 设置 记录更新时间
+     * 设置记录更新时间
      *
-     * @param updatetime  记录更新时间
+     * @param updatetime 记录更新时间
      */
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
